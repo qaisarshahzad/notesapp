@@ -14,6 +14,12 @@ if(isset($_POST['notes']))
 {
 	header("Location:notes.php");
 }
+if(isset($_POST['change']))
+{
+	$color=$_POST['color'];
+	$_SESSION['color']=$color;
+
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,7 +33,16 @@ if(isset($_POST['notes']))
 
 	<title>User Panel </title>
 </head>
-<body >
+<body<body style="background:<?php
+if(isset($_SESSION['color']))
+{
+	echo  $_SESSION['color'];
+}
+else
+{
+	echo "white";
+}
+?>">
     <div class="container">
 		<form action="" method="POST" class="login-email">
             <p class="login-text" style="font-size: 2rem; font-weight: 800;">Panel</p>
